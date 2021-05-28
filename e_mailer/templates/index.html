@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="d-flex justify-content-center mt-5">
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="id_email">Адрес получателя: </label>
+            {{ form.email }}
+        </div>
+        <div>
+            <label for="id_title">Заголовок письма:</label>
+            {{ form.title }}
+        </div>
+        <div class="form-group mt-2">
+            <label for="id_text">Текст письма: </label>
+            <div id="id_text">{{ form.text }}</div>
+        </div>
+        <div class="form-group">
+            <label for="id_seconds">Время ожидания отправки (секунды):</label>
+            {{ form.seconds }}
+        </div>
+        <button type="submit" class="btn btn-dark mb-2">Отправить</button>
+    </form>
+</div>
+{% endblock %}
